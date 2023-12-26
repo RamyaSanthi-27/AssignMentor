@@ -3,7 +3,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 const app = express()
 const cors = require("cors");
 const dotenv = require('dotenv').config();
-const port = 3005;
+const PORT_NUM = process.env.PORT_NUM || 5005;
 const URL = process.env.DB;
 app.use(express.json())
 app.use(
@@ -271,6 +271,6 @@ app.get("/oldmentor-by-student/:studentName", async (req, res) => {
 
 
 
-app.listen(port, () => {
-  console.log("server started at " + port);
+app.listen(PORT_NUM, () => {
+  console.log("server started at " + PORT_NUM);
 });
